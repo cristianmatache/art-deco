@@ -1,0 +1,9 @@
+---
+endOfLine: lf
+printWidth: 120
+overrides:
+  - files:
+      - '*.yaml'
+      - '*.yml'
+    options:
+      singleQuote: true

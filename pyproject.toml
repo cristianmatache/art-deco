@@ -1,0 +1,81 @@
+[tool.pytest.ini_options]
+addopts = "--cov=art_deco --cov-fail-under=90 -vv --durations=10 --cov-report html --cov-report xml"
+
+[tool.isort]
+profile = 'black'
+line_length = '120'
+
+[tool.black]
+line-length = '120'
+skip-string-normalization = true
+
+[tool.bandit]
+skips = ["B101"]
+
+[tool.flakeheaven]
+format = "colored"
+# baseline = ".baseline.txt"  # Uncomment this and run `flakeheaven baseline > .baseline.txt` to ignore legacy errors
+
+[tool.flakeheaven.plugins]
+wemake-python-styleguide = [
+    "+*", "-WPS110", "-WPS111", "-WPS120", "-WPS218", "-WPS232", "-WPS305", "-WPS306", "-WPS326", "-WPS305", "-WPS347",
+    "-WPS355", "-WPS358", "-WPS430", "-WPS432", "-WPS462", "-WPS602",
+]
+flake8-annotations = ["+*", "-ANN101", "-ANN401"]
+flake8-bugbear = ["+*"]
+flake8-builtins = ["+*"]
+flake8-comprehensions = ["+*", "-C408"]
+#flake8-darglint = ["+*"]
+flake8-debugger = ["+*"]
+flake8-eradicate = ["+*"]
+flake8-quotes = ["+*"]
+flake8-rst-docstrings = ["+*"]
+flake8-string-format = ["+*"]
+flake8-mutable = ["+*"]
+flake8-pytest-style = ["+*"]
+flake8-spellcheck = ["+*"]
+mccabe = ["+*"]
+pep8-naming = ["+*"]
+pycodestyle = ["+*", "-E203", "-W503"]
+pyflakes = ["+*"]
+#pylint = ["+*"]  # Uncomment if you want to enable pylint and use it on top of the baseline
+#flake8-bandit = ["+*"]
+#flake8-docstrings = ["+*"]
+#flake8-isort = ["+*"]
+
+[tool.pylint.MASTER]
+extension-pkg-whitelist = "pydantic"
+
+[tool.pylint.FORMAT]
+max-line-length = '120'
+disable = [
+    "import-error",  # pre-commit does not give access to full env
+    "fixme",
+    "logging-format-interpolation",
+    "logging-fstring-interpolation",
+    "logging-not-lazy",
+    "missing-module-docstring",
+    "missing-class-docstring",
+    "missing-function-docstring",
+    "missing-module-docstring",
+    "too-few-public-methods",
+]
+good-names = [
+    "x", "y", "z", "t", "a", "b", "c", "d",
+]
+
+[tool.coverage.run]
+omit = []
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.",
+]
+
+[tool.diff_cover]
+compare_branch = "main"
+ignore_unstaged = true
+ignore_whitespace = true
+show_uncovered = false
+#quiet = true
