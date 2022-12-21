@@ -17,9 +17,9 @@ def main() -> None:
         zip_safe=False,  # for mypy
         package_data={'{self.lib_name}': ['py.typed']},  # expose types to users
         author='Cristian Matache',
-        author_email='Your email',
-        description='',
+        description='Via decorators, make complex processing of function or method arguments effortless.',
         long_description=README_FILE.read_text(encoding='utf-8'),
+        long_description_content_type='text/markdown',
     )
 
 
