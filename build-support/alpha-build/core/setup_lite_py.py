@@ -6,12 +6,12 @@ from setuptools import setup
 FILE_PATH = Path(__file__).absolute()
 REPO_ROOT = FILE_PATH.parents[3]
 README = REPO_ROOT / "README.md"
-COMPRESSED_CORE = REPO_ROOT / "alpha_build_core.tar.gz"
+COMPRESSED_CORE = REPO_ROOT / "alpha_build_lite_py.tar.gz"
 
 setup(
-    name="alpha-build-core",
+    name="alpha-build-lite-py",
     version="0.1.6",
-    description="AlphaBuild's core",
+    description="AlphaBuild's lightweight core",
     long_description=README.read_text(),
     long_description_content_type="text/markdown",
     url="https://github.com/cristianmatache/alpha-build",
